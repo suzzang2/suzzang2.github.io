@@ -180,6 +180,7 @@ span {
 @media all and (max-width:479px){
     header{
         font-size: 17px;
+        -webkit-text-stroke: 1px olive;
     }
     aside{
         width: 15%;
