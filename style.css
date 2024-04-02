@@ -14,6 +14,8 @@ body {
   justify-content: center; /* 수평 가운데 정렬 */
   align-items: center; /* 수직 가운데 정렬 */
 
+  padding-top: 0.1rem;
+
 }
 
 aside {
@@ -196,8 +198,6 @@ span {
   main {
     width: 85%;
     height: 90%;
-    padding-top: 0.1rem;
-
   }
   section {
     font-size: 0.5rem;
