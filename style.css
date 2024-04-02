@@ -196,7 +196,8 @@ span {
     main{
         font-size: 0.7rem;
         width: 85%;
-        height: 90%
+
+        height: inherit;
     }
     section {
         font-size: 0.55rem;
