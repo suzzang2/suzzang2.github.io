@@ -76,7 +76,7 @@ header {
 
 
 main {
-    width: 95%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -94,8 +94,9 @@ section {
     display: flex;
     flex-direction: column;
 
+
     border-radius: 5px;
-    margin: 5px;
+    margin: 0.5rem;
     padding: 15px;
 
     line-height: 22px; /* 줄 간격 */
@@ -150,7 +151,10 @@ nav {
 
 a {
     text-decoration: none; /* 하이퍼링크의 밑줄 제거 */
-    -webkit-text-stroke: 0.7px rgb(33, 24, 0);
+}
+
+aside a{
+    -webkit-text-stroke: 0.01rem rgb(51, 51, 0);
 }
 
 a:link{
@@ -159,12 +163,17 @@ a:link{
 }
 /* 마우스가 링크 위로 올라갔을 때 */
 a:hover {
-    color: rgb(33, 24, 0);
+    color: rgb(168, 64, 0);
 }
 
 /* 링크를 클릭한 후 */
 a:active {
-    color: rgb(152, 156, 119);
+    color: rgb(156, 156, 156);
+}
+
+a:visited{
+    color: rgb(58, 58, 57);
+
 }
 
 #about img{
