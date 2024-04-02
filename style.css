@@ -209,5 +209,9 @@ span {
         font-size: 0.55rem;
         line-height: 15px;
     }
+
+    container{
+        height: 90%;
+    };
 }
     
