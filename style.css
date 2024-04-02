@@ -1,213 +1,206 @@
-@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gasoek+One&family=Song+Myung&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gasoek+One&family=Hahmlet:wght@100..900&family=Song+Myung&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gasoek+One&family=Gowun+Dodum&family=Hahmlet:wght@100..900&family=Song+Myung&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Song+Myung&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gasoek+One&family=Song+Myung&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gasoek+One&family=Hahmlet:wght@100..900&family=Song+Myung&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gasoek+One&family=Gowun+Dodum&family=Hahmlet:wght@100..900&family=Song+Myung&display=swap");
 
 body {
-    font-family: "Song Myung", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Song Myung", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 
-    background-color: rgb(63, 72, 19);
+  background-color: rgb(63, 72, 19);
 
-    display: flex;
-    justify-content: center; /* 수평 가운데 정렬 */
-    align-items: center; /* 수직 가운데 정렬 */
+  display: flex;
+  justify-content: center; /* 수평 가운데 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
 }
 
 aside {
-    color: white;
-    font-size: 20px;
-    width: 20vw;
-    height: 97.7vh;
-    background-color: beige;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border: 0.1rem solid rgb(49, 40, 0);
+  color: white;
+  font-size: 20px;
+  width: 20vw;
+  height: 97.7vh;
+  background-color: beige;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 0.1rem solid rgb(49, 40, 0);
 }
 
 footer {
-    font-family: "Gasoek One", sans-serif;
-    font-size: 20px;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: space-evenly;
+  font-family: "Gasoek One", sans-serif;
+  font-size: 20px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-evenly;
 }
 
 header {
-    font-family: "Gasoek One", sans-serif;
-    -webkit-text-stroke: 2.5px olive;
+  font-family: "Gasoek One", sans-serif;
+  -webkit-text-stroke: 2.5px olive;
 
-    width: 95%;
-    height: 10%;
-    color: white;
-    text-align: center;
-    font-size: 35px;
+  width: 95%;
+  height: 10%;
+  color: white;
+  text-align: center;
+  font-size: 35px;
 }
 
 #container {
-    /* font */
-    font-family: "Song Myung", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: grey;
+  /* font */
+  font-family: "Song Myung", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: grey;
 
-    /* layout */
-    width: 90vw;
-    height: 90vh;
-    background-color: rgb(107, 105, 89);
-    display: flex;
-    border-radius: 20px;
-    flex-direction: column;
-    border: 0.1rem solid rgb(49, 40, 0);
-    padding: 8px;
+  /* layout */
+  width: 90vw;
+  height: 700px;
+  background-color: rgb(107, 105, 89);
+  display: flex;
+  border-radius: 20px;
+  flex-direction: column;
+  border: 0.1rem solid rgb(49, 40, 0);
+  padding: 8px;
 
-    align-items: center;
+  align-items: center;
 
-    /* scroll */
-    overflow-y: auto; /* 위아래 스크롤이 필요할 때만 스크롤이 나타나도록 설정 */
-
+  /* scroll */
+  overflow-y: auto; /* 위아래 스크롤이 필요할 때만 스크롤이 나타나도록 설정 */
 }
 
-
 main {
-    width: 90%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 section {
-    background-color: beige;
-    width: 95%;
+  background-color: beige;
+  width: 95%;
 
-    color:rgb(60, 60, 60);
-    font-size: 0.8rem;
+  color: rgb(60, 60, 60);
+  font-size: 0.8rem;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
+  border-radius: 5px;
+  margin: 0.5rem;
+  padding: 15px;
 
-    border-radius: 5px;
-    margin: 0.5rem;
-    padding: 15px;
-
-    line-height: 22px; /* 줄 간격 */
+  line-height: 22px; /* 줄 간격 */
 }
-
 
 #language {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap; /* 넘치는 아이템을 다음 줄로 내려가도록 설정 */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap; /* 넘치는 아이템을 다음 줄로 내려가도록 설정 */
 }
 #language img {
-    max-width: 40px;
-    max-height: 45px;
-    display: block;
-    flex: 1 0 25%; /* 아이템의 너비를 25%로 설정하여 한 줄당 4개씩 배치 */
+  max-width: 40px;
+  max-height: 45px;
+  display: block;
+  flex: 1 0 25%; /* 아이템의 너비를 25%로 설정하여 한 줄당 4개씩 배치 */
 }
 
 #work {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 #site {
-    display: flex;
-    flex-direction: row; /* 행 방향으로 아이템을 배치 */
-    justify-content: center; /* 아이템을 수평 방향으로 중앙 정렬 */
-    align-items: center; /* 아이템을 수직 방향으로 중앙 정렬 */
+  display: flex;
+  flex-direction: row; /* 행 방향으로 아이템을 배치 */
+  justify-content: center; /* 아이템을 수평 방향으로 중앙 정렬 */
+  align-items: center; /* 아이템을 수직 방향으로 중앙 정렬 */
 }
 #one img {
-    display: block;
+  display: block;
 }
 
 #one {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* other */
 nav {
-    margin: 5px;
-    border-top: 1px solid #696100; /* 위쪽에 1픽셀 두께의 선 추가 */
-    border-bottom: 1px solid #696100;
-    color: #696100; /* 아래쪽에 1픽셀 두께의 선 추가 */
+  margin: 5px;
+  border-top: 1px solid #696100; /* 위쪽에 1픽셀 두께의 선 추가 */
+  border-bottom: 1px solid #696100;
+  color: #696100; /* 아래쪽에 1픽셀 두께의 선 추가 */
 }
 
 a {
-    text-decoration: none; /* 하이퍼링크의 밑줄 제거 */
+  text-decoration: none; /* 하이퍼링크의 밑줄 제거 */
 }
 
-aside a{
-    -webkit-text-stroke: 0.01rem rgb(51, 51, 0);
+aside a {
+  -webkit-text-stroke: 0.01rem rgb(51, 51, 0);
 }
 
-a:link{
-    color: rgb(86, 63, 0);
-
+a:link {
+  color: rgb(86, 63, 0);
 }
 /* 마우스가 링크 위로 올라갔을 때 */
 a:hover {
-    color: rgb(168, 64, 0);
+  color: rgb(168, 64, 0);
 }
 
 /* 링크를 클릭한 후 */
 a:active {
-    color: rgb(156, 156, 156);
+  color: rgb(156, 156, 156);
 }
 
-a:visited{
-    color: rgb(58, 58, 57);
-
+a:visited {
+  color: rgb(58, 58, 57);
 }
 
-#about img{
-    width: 80%;
+#about img {
+  width: 80%;
 }
 
 span {
-    font-size: 160%;
+  font-size: 160%;
 }
-
 
 /* media query */
-@media all and (max-width:479px){
-    header{
-        font-size: 17px;
-        -webkit-text-stroke: 1px olive;
-    }
-    aside{
-        width: 15%;
-        height: 100%;
-        font-size: 7px; 
-    }
-    footer img{
-        width: 1rem;
-    }
-    #container{
-        margin: 1rem;
-    }
-    main{
-        font-size: 0.7rem;
-        width: 85%;
-        height: 90%
-    }
-    section {
-        font-size: 0.55rem;
-        line-height: 15px;
-    }
+@media all and (max-width: 479px) {
+  header {
+    font-size: 17px;
+    -webkit-text-stroke: 1px olive;
+  }
+  aside {
+    width: 15%;
+    height: 100%;
+    font-size: 7px;
+  }
+  footer img {
+    width: 1rem;
+  }
+  #container {
+    margin: 10px;
+    height: 600px;
+  }
+  main {
+    font-size: 0.7rem;
+    width: 85%;
+    height: 90%;
+  }
+  section {
+    font-size: 0.55rem;
+    line-height: 15px;
+  }
+
 }
-    
