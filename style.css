@@ -13,6 +13,7 @@ body {
   display: flex;
   justify-content: center; /* 수평 가운데 정렬 */
   align-items: center; /* 수직 가운데 정렬 */
+
 }
 
 aside {
@@ -190,16 +191,16 @@ span {
     width: 1rem;
   }
   #container {
-    margin: 10px;
     height: 600px;
   }
   main {
-    font-size: 0.7rem;
     width: 85%;
     height: 90%;
+    padding-top: 0.1rem;
+
   }
   section {
-    font-size: 0.55rem;
+    font-size: 0.5rem;
     line-height: 15px;
   }
 
