@@ -13,9 +13,7 @@ body {
   display: flex;
   justify-content: center; /* 수평 가운데 정렬 */
   align-items: center; /* 수직 가운데 정렬 */
-
   padding-top: 20px;
-
 }
 
 aside {
@@ -179,7 +177,7 @@ span {
 }
 
 /* media query */
-@media all and (max-width: 479px) {
+@media all and (max-width: 540px) {
   header {
     font-size: 17px;
     -webkit-text-stroke: 1px olive;
@@ -196,12 +194,12 @@ span {
     height: 600px;
   }
   main {
+    font-size: 0.7rem;
     width: 85%;
-    height: 90%;
+    height: fit-content;
   }
   section {
-    font-size: 0.5rem;
+    font-size: 0.55rem;
     line-height: 15px;
   }
-
 }
