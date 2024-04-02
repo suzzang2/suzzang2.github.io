@@ -203,7 +203,7 @@ span {
     main{
         font-size: 0.7rem;
         width: 85%;
-        height: 90%
+        height: 90%;
     }
     section {
         font-size: 0.55rem;
@@ -212,6 +212,6 @@ span {
 
     container{
         height: 90%;
-    };
+    }
 }
     
