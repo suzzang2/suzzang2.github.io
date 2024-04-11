@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>가위바위보</title>
+  </head>
+
+  <body class="light-mode">
+    <div id="mode">
+      <button id="mode-button">Mode : ☀️</button>
+    </div>
+    <div id="header-wrapper" class="row">
+      <header id="title">Rock Scissors Paper!</header>
+      <div class="row">
+        <button>
+          <i
+            id="reset-button"
+            class="fa-solid fa-arrow-rotate-left change-reverse"
+          ></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="contents-wrapper" class="contents change">
+      <section class="score-section row">
+        <div class="score my-score">0</div>
+        <div class="score"> : </div>
+        <div class="score computer-score">0</div>
+      </section>
+
+<!-- display -->
+      <section class="display-section row">
+        <div class="display-main column">
+          <div id="display-title" class="title">Me</div>
+
+          <div class="icon-container">
+            <i id="my-hand-icon" class="fas fa-question"></i>
+          </div>
+          <div id="my-hand-text"></div>
+        </div>
+
+        <div id="display-result"></div>
+
+        <div class="display-main column">
+          <div id="display-title" class="title">Com</div>
+
+          <div class="icon-container">
+            <i id="computer-hand-icon" class="fas fa-question"></i>
+          </div>
+
+          <div id="computer-hand-text"></div>
+        </div>
+      </section>
+
+<!-- button -->
+      <section class="button-section row">
+        <button id="rock">
+          <i id="rockBtn" class="fa-regular fa-hand-back-fist change"></i>
+        </button>
+        <button id="scissors">
+          <i
+            id="scissorsBtn"
+            class="fa-regular fa-hand-scissors fa-rotate-90 change"
+          ></i>
+        </button>
+        <button id="paper">
+          <i id="paperBtn" class="fa-regular fa-hand change"></i>
+        </button>
+      </section>
+      <footer>- made by suzzang2 -</footer>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/001200a43b.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
