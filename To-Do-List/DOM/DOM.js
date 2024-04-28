@@ -1,4 +1,4 @@
-//<1>
+//1단계(base)
 //html에 element를 추가하는 기본 틀이 되는 class
 class DOM{
     constructor(tagName, innerText, className){

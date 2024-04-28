@@ -1,8 +1,9 @@
-//
+//3단계
 import Button from "./Button.js";
 import Div from "./Div.js";
 
 class Todo {
+    //constructor
     constructor(todo) {
         //Div(innerText, className)
         this.row = new Div('', 'row').node; //할 일 전체 한 줄을 의미
