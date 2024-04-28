@@ -1,3 +1,5 @@
+//<1>-2
+//DOM의 기본 틀을 확장하여, 'button' element를 만드는 class
 import DOM from "./DOM.js";
 import Image from "./Image.js";
 

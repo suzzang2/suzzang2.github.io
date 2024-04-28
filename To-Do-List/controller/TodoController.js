@@ -1,5 +1,4 @@
 import Todo from "../DOM/Todo.js";
-import Complete from "../DOM/Complete.js";
 
 class TodoController {
     //constructor
