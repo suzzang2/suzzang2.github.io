@@ -1,19 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Gaegu&display=swap');
-.gaegu-regular {
-    font-family: "Gaegu", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
 body{
     display: flex;
     justify-content: center;
     width: 99vw;
     height: 90vh;
-
-    font-family: "Gaegu", sans-serif;
-    font-weight: 400;
-    font-style: normal;
 }
 
 main{
@@ -132,7 +121,7 @@ button{
 }
 .complete-btn{
     color: white;
-    background-color: #919191;
+    background-color: #5e5e5e;
 }
 .complete-btn:hover{
     cursor: pointer;
@@ -161,4 +150,9 @@ button{
 .button-image{
     width: 17px;
     margin-left: 2px;
+}
+#compAllBtn{
+    color: rgb(119, 119, 119);
+    margin-top: 10px;
+    border: 1.7px solid rgb(119, 119, 119);
 }
