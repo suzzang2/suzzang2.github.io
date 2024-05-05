@@ -1,0 +1,8 @@
+body {
+    background-color: #e2e2e2;
+  }
+
+img {
+    height: 700px;
+    object-fit: cover; /* 이미지 비율 유지 */
+}
