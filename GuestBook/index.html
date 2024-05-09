@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <title>suzzang&temple's 방명록</title>
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -18,14 +17,14 @@
 
         <div id="new">
             <div id="newHeader">            
-                <input type="text" id="writerInput" placeholder="이름"/>
+                <input type="text" id="writerInput" placeholder="이름"/> 
                 <input type="password" id="passwordInput" placeholder="비밀번호"/>
             </div>
             <input type="text" id="titleInput" placeholder="제목"/>
             <input type="text" id="contentInput" placeholder="내용"/>
-            <button id="addBtn" onclick="postData()">new</button>
-            <button id="postBtn" onclick="postData()">post</button>
-            <button id="fetchBtn" onclick="getData()">fetch</button>
+            <button id="addBtn" onclick="postData()">add</button>
+            <!-- <button id="postBtn" onclick="postData()">post</button> -->
+            <!-- <button id="fetchBtn" onclick="getData()">fetch</button> -->
 
         </div>
     </main>
