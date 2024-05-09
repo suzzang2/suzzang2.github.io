@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>suzzang&temple's 방명록</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <strong>suzzang & temple's 방명록</strong>
+    </header>
+    <main>
+        <div id="container">
+            
+        </div>
+
+        <div id="new">
+            <div id="newHeader">            
+                <input type="text" id="writerInput" placeholder="이름"/>
+                <input type="password" id="passwordInput" placeholder="비밀번호"/>
+            </div>
+            <input type="text" id="titleInput" placeholder="제목"/>
+            <input type="text" id="contentInput" placeholder="내용"/>
+            <button id="addBtn" onclick="postData()">new</button>
+            <button id="postBtn" onclick="postData()">post</button>
+            <button id="fetchBtn" onclick="getData()">fetch</button>
+
+        </div>
+    </main>
+
+    <!-- <button onclick="getGuestbooks()">불러오기</button> -->
+
+    <script src="./index.js"></script>
+    <script>        
+        window.onload = function() {
+            getData(); // 실행할 함수 호출
+        };
+    </script>
+</body>
+
+</html>

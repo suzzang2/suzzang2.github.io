@@ -49,7 +49,9 @@ async function getData(){
         const button = document.createElement("button");
         button.innerText = "더보기";
         button.addEventListener("click", ()=>{
-            const queryString = `image=${data.galWebImageUrl}&date=${data.galCreatedtime}&photoGrapher=${data.galPhotographer}&keyWord=${data.galSearchKeyword}`; 
+            const queryString = `image=${data.galWebImageUrl}&date=${data.galCreatedtime}
+            &photoGrapher=${data.galPhotographer}&keyWord=${data.galSearchKeyword}
+            &title=${data.galTitle}`; 
             window.open(`plus.html?${queryString}`, "_blank");
         })
 
