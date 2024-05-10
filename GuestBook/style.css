@@ -85,6 +85,8 @@ input[type="content"] {
 input {
     margin: 3px;
     font-family: 'Hahmlet', sans-serif;
+    font-size: 12px;
+    border: none;
 }
 
 #container {
@@ -95,13 +97,10 @@ input {
     
 }
 
-.wrapper {
-    display: flex;
-    align-items: center; 
-}
-
 .verifyPassword {
     width: 80px;
+    border: none;
+    border-radius: 3px;
 }
 
 #addBtn {
@@ -110,12 +109,11 @@ input {
 
 #titleInput, #contentInput {
     width: 96%;
+    border-radius: 3px;
 }
 
 #contentInput {
     height: 100px;
-    word-wrap: break-word; /* 단어가 컨테이너의 너비를 초과할 때 줄바꿈 */
-    width: 100%; /* 원하는 너비로 설정 */
 }
 
 /*********/
@@ -155,4 +153,8 @@ input {
 
 .sfooter {
     margin-left: auto;
+}
+
+img {
+    width: 15%;
 }
