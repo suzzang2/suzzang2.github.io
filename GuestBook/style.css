@@ -62,6 +62,7 @@ button:hover {
 #new{
     background-color: beige;
     color: white;
+    width: 88%;
     border: 2px rgb(255, 255, 255) solid;
     padding: 2px;
     padding-left: 5px;
@@ -157,4 +158,8 @@ input {
 
 img {
     width: 15%;
+}
+
+#writerInput, #passwordInput {
+    border-radius: 3px;
 }
