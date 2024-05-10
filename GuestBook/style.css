@@ -114,6 +114,8 @@ input {
 
 #contentInput {
     height: 100px;
+    word-wrap: break-word; /* 단어가 컨테이너의 너비를 초과할 때 줄바꿈 */
+    width: 100%; /* 원하는 너비로 설정 */
 }
 
 /*********/
@@ -122,7 +124,7 @@ input {
     border-bottom: 1.5px white solid;
     display: flex;
     flex-direction: column;
-    width: 400px; /*사이즈 조정좀 잘하기...*/
+    width: 600px; /*사이즈 조정좀 잘하기...*/
     justify-content: space-evenly;
     margin: 5px;
 }
