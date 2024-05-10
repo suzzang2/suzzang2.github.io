@@ -36,7 +36,7 @@ const getData = () => {
             //(1)-1 writer 생성
             const writer = document.createElement('div');
             writer.classList.add('writer');
-            writer.innerHTML = `writer : ${data.writer}`;
+            writer.innerHTML = `Writer : ${data.writer}`;
             //(1)-2 date 생성
             const date = document.createElement('div');
             date.classList.add('date');
@@ -44,7 +44,9 @@ const getData = () => {
             const year = dateObject.getFullYear(); // 년도 추출
             const month = dateObject.getMonth() + 1; // 월 추출 (0부터 시작하므로 1을 더함)
             const day = dateObject.getDate(); // 일 추출
-            date.innerHTML = `${year}/${month}/${day}`; 
+            const hour = dateObject.getHours(); // 시 추출
+            const minute = dateObject.getMinutes(); // 분 추출
+            date.innerHTML = `${year}/${month}/${day}  ${hour}:${minute}`; 
             //sheader에 추가
             sheader.appendChild(writer); sheader.appendChild(date);
 
@@ -52,12 +54,12 @@ const getData = () => {
             //(2) stitle 생성
             const stitle = document.createElement('div');
             stitle.classList.add('stitle');
-            stitle.innerHTML = `title : ${data.title}`;
+            stitle.innerHTML = `Title : ${data.title}`;
             
             //(3) scontent 생성
             const scontent = document.createElement('div');
             scontent.classList.add('scontent');
-            scontent.innerHTML = `content : ${data.content}`;
+            scontent.innerHTML = `${data.content}`;
 
             //(4) sfooter 생성
             const sfooter = document.createElement('div');
