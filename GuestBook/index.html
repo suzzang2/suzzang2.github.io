@@ -9,11 +9,34 @@
 </head>
 <body>
     <header>
-        <strong>suzzang & temple's 방명록</strong>
+        <strong>Suzzang & Temple's Guest Book</strong>
     </header>
     <main>
         <div id="container">
-            
+            <div class="wrapper"> 
+                <!-- 1 -->
+                <div class="sheader">
+                    <div class="writer">
+                        writer
+                    </div>
+                    <div class="date">
+                        date
+                    </div>  
+                </div>
+                <!-- 2 -->
+                <div class="stitle">
+                    title
+                </div>
+                <!-- 3 -->
+                <div class="scontent">
+                    content
+                </div>
+                <!-- 4 -->
+                <div class="sfooter">
+                    <input type="password" class="verifyPassword" placeholder="비밀번호"/>
+                    <button class="deleteBtn" onclick="deleteData()">delete</button>
+                </div>
+            </div>
         </div>
 
         <div id="new">
@@ -24,9 +47,6 @@
             <input type="text" id="titleInput" placeholder="제목"/>
             <input type="text" id="contentInput" placeholder="내용"/>
             <button id="addBtn" onclick="postData()">add</button>
-            <!-- <button id="postBtn" onclick="postData()">post</button> -->
-            <!-- <button id="fetchBtn" onclick="getData()">fetch</button> -->
-
         </div>
     </main>
 

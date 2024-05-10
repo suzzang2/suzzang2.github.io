@@ -17,7 +17,7 @@ header{
     font-size: 30px;
     padding: 30px;
     margin: 10px;
-    width: 70%;
+    width: 50%;
     height: 10%;
     text-align: center;
 }
@@ -26,7 +26,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90%;
+    width: 70%;
     height: 90%;
     border: 2px white solid;
     padding: 30px;
@@ -38,6 +38,8 @@ main {
     border-top: 1.2px white solid;
     border-bottom: 1.2px white solid;
     margin: 1.5px;
+
+    height: 80px;
 }
 
 button {
@@ -112,4 +114,43 @@ input {
 
 #contentInput {
     height: 100px;
+}
+
+/*********/
+.wrapper {
+    border-top: 1.5px white solid;
+    border-bottom: 1.5px white solid;
+    display: flex;
+    flex-direction: column;
+    width: 400px; /*사이즈 조정좀 잘하기...*/
+    justify-content: space-evenly;
+    margin: 5px;
+}
+
+.sheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px white solid;
+    width: 100%;
+}   
+
+.writer {
+    margin-right: auto;
+}
+.date {
+    margin-left: auto;
+}
+
+.stitle {
+    margin-right: auto;
+    border-bottom: 1px white solid;
+    width: 100%;
+}
+.scontent {
+    margin-right: auto;
+}
+
+.sfooter {
+    margin-left: auto;
 }

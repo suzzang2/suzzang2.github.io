@@ -1,17 +1,8 @@
-const baseURL = "https://toy-server.templ.es/guestbooks/";
+
+const baseURL = "http://toy-server.templ.es/guestbooks/";
 const container = document.getElementById('container');
 
 
-// async function getGuestbooks(){
-//   const fetchData = await fetch(baseURL);
-//     console.log("<response>");
-//     console.log(fetchData);
-
-//   const data = await fetchData.json();
-//   console.log("<json>");
-//     console.log(data);
-
-// }
 
 // db에서 방명록 리스트 받아오는 함수
 const getData = () => {
@@ -25,57 +16,83 @@ const getData = () => {
     })
     .then((response)=> {
         console.log(response)
-        // console.log(response.frontend)
-        // const datas = response.frontend
 
-        response.map((data)=>{
-            //전체 묶음 생성
+        response.map((data)=>{ //data 배열들을 돌면서 요소들 출력
+            //wrapper 생성
             const wrapper = document.createElement('div');
             wrapper.classList.add('wrapper'); //클래스 추가
 
-            //sentence 요소 생성
-            const list = document.createElement('div');
-            list.classList.add('sentence');
-            list.innerHTML = `작성자 : ${data.writer} | 
-            제목 : ${data.title} | 
-            내용 : ${data.content}`
+            //sentence 생성
+            // const sentence = document.createElement('div');
+            // sentence.classList.add('sentence');
+            // sentence.innerHTML = `작성자 : ${data.writer} | 
+            // 제목 : ${data.title} | 
+            // 내용 : ${data.content}`
 
-            //삭제 버튼 요소 생성
+            //이거 밑에 개많은거 DOM으로 리팩토링할까...
+            //(1) sheader 생성
+            const sheader = document.createElement('div');
+            sheader.classList.add('sheader');
+            //(1)-1 writer 생성
+            const writer = document.createElement('div');
+            writer.classList.add('writer');
+            writer.innerHTML = `writer : ${data.writer}`;
+            //(1)-2 date 생성
+            const date = document.createElement('div');
+            date.classList.add('date');
+            const dateObject = new Date(data.created_at); //가공을 위해 내장된 날짜 객체 생성
+            const year = dateObject.getFullYear(); // 년도 추출
+            const month = dateObject.getMonth() + 1; // 월 추출 (0부터 시작하므로 1을 더함)
+            const day = dateObject.getDate(); // 일 추출
+            date.innerHTML = `${year}/${month}/${day}`; 
+            //sheader에 추가
+            sheader.appendChild(writer); sheader.appendChild(date);
+
+
+            //(2) stitle 생성
+            const stitle = document.createElement('div');
+            stitle.classList.add('stitle');
+            stitle.innerHTML = `title : ${data.title}`;
+            
+            //(3) scontent 생성
+            const scontent = document.createElement('div');
+            scontent.classList.add('scontent');
+            scontent.innerHTML = `content : ${data.content}`;
+
+            //(4) sfooter 생성
+            const sfooter = document.createElement('div');
+            sfooter.classList.add('sfooter');
+            //(4)-1 delBtn 생성
             const delBtn = document.createElement('button');
-            delBtn.innerHTML = '삭제';
+            delBtn.innerHTML = 'delete';
             delBtn.classList.add('delBtn');
             //삭제 버튼 클릭 시 삭제 함수 실행
             delBtn.addEventListener('click', (e)=>{
-                //근데 이제 verifyPassword가 일치해야 삭제되게 해야 함
-                console.log("삭제버트클릭됨");
-
                 // 클릭된 버튼의 부모 요소를 찾음 --> 중요!!! 딱 그 버튼 옆의 value를 선택하도록!!!
                 const parent = e.target.parentNode;
                 const verifyPassword = parent.querySelector('.verifyPassword').value; 
                 console.log(verifyPassword);
-                // if(verifyPassword !== data.password){
-                //     alert('비밀번호가 일치하지 않습니다');
-                //     return;
-                // }
-                // else{
-                //     delData(data.id);
-                // }
                 delData(data.id, verifyPassword);
                 parent.querySelector('.verifyPassword').value = ''; //입력 필드 비워주기
             })
-
-            //비밀번호 입력칸 생성
+            //(4)-2 passwordInput 생성
             const passwordInput = document.createElement('input');
             passwordInput.setAttribute('type', 'password'); //???
-            passwordInput.classList.add('verifyPassword');
             passwordInput.placeholder = '비밀번호';
+            passwordInput.classList.add('verifyPassword');
+            //sfooter에 추가
+            sfooter.appendChild(delBtn); sfooter.appendChild(passwordInput);
 
-            wrapper.appendChild(list); //이렇게 한 묶음으로 보내서, 
-            wrapper.appendChild(delBtn);
-            wrapper.appendChild(passwordInput);
 
-            container.appendChild(wrapper); //최종으로 container에 보내기
-            console.log(data);
+            //wrapper로 묶기
+            wrapper.appendChild(sheader); 
+            wrapper.appendChild(stitle);
+            wrapper.appendChild(scontent);
+            wrapper.appendChild(sfooter);
+
+            //최종으로 container에 보내기
+            container.appendChild(wrapper); 
+            console.log(data); //data 확인
         })
     })
 }
