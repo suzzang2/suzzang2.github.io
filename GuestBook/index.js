@@ -83,7 +83,7 @@ const getData = () => {
             passwordInput.placeholder = '비밀번호';
             passwordInput.classList.add('verifyPassword');
             //sfooter에 추가
-            sfooter.appendChild(delBtn); sfooter.appendChild(passwordInput);
+            sfooter.appendChild(passwordInput); sfooter.appendChild(delBtn); 
 
 
             //wrapper로 묶기
