@@ -12,10 +12,16 @@ const getData = () => {
 
     fetch(baseURL)
     .then((response)=> {
-        return response.json()
+        return response.json();
     })
     .then((response)=> {
-        console.log(response)
+        console.log("< response >");
+        console.log(response);
+
+        //response의 시간을 내림차순으로 정렬
+        response.sort((a, b) => {
+            return new Date(b.created_at) - new Date(a.created_at);
+        })
 
         response.map((data)=>{ //data 배열들을 돌면서 요소들 출력
             //wrapper 생성
@@ -146,17 +152,6 @@ const postData = () => {
 
 // db에서 방명록 삭제하는 함수
 const delData = (id, password) => { //다른 거와 다르게 id값 필요함!!    
-    // fetch(baseURL + id, {
-    //     method: 'DELETE'
-    // })
-    // .then((response)=> {
-    //     return response.json()
-    // })
-    // .then((response)=> {
-    //     console.log(response);
-    //     getData();
-    // })
-
     const requestOptions = {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
