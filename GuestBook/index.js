@@ -22,13 +22,6 @@ const getData = () => {
             const wrapper = document.createElement('div');
             wrapper.classList.add('wrapper'); //클래스 추가
 
-            //sentence 생성
-            // const sentence = document.createElement('div');
-            // sentence.classList.add('sentence');
-            // sentence.innerHTML = `작성자 : ${data.writer} | 
-            // 제목 : ${data.title} | 
-            // 내용 : ${data.content}`
-
             //이거 밑에 개많은거 DOM으로 리팩토링할까...
             //(1) sheader 생성
             const sheader = document.createElement('div');
@@ -117,7 +110,11 @@ const postData = () => {
         const title = titleInput.value;
         const content = contentInput.value;
         console.log(writer, password, title, content); //입력값 확인
-
+        //입력값이 없으면 POST 안 함(예외처리)
+        if(writer === '' || password === '' || title === '' || content === ''){
+            alert('모든 항목을 입력하세요^^');
+            return;
+        }
     
 
     fetch(baseURL, {
