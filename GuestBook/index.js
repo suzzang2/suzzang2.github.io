@@ -35,7 +35,7 @@ const getData = () => {
             //(1)-1 writer 생성
             const writer = document.createElement('div');
             writer.classList.add('writer');
-            writer.innerHTML = `Writer : ${data.writer}`;
+            writer.innerHTML = `👤&nbsp&nbsp&nbsp|&nbsp ${data.writer}`;
             //(1)-2 date 생성
             const date = document.createElement('div');
             date.classList.add('date');
@@ -53,7 +53,7 @@ const getData = () => {
             //(2) stitle 생성
             const stitle = document.createElement('div');
             stitle.classList.add('stitle');
-            stitle.innerHTML = `Title : ${data.title}`;
+            stitle.innerHTML = `${data.title}`;
             
             //(3) scontent 생성
             const scontent = document.createElement('div');
