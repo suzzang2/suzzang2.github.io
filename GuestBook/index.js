@@ -65,7 +65,7 @@ const getData = () => {
             sfooter.classList.add('sfooter');
             //(4)-1 delBtn 생성
             const delBtn = document.createElement('button');
-            delBtn.innerHTML = 'Delete';
+            delBtn.innerHTML = '삭제';
             delBtn.classList.add('delBtn');
             //삭제 버튼 클릭 시 삭제 함수 실행
             delBtn.addEventListener('click', (e)=>{
