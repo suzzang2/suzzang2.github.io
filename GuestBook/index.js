@@ -105,7 +105,7 @@ const postData = () => {
     const passwordInput = document.getElementById('passwordInput');
     const titleInput = document.getElementById('titleInput');
     // const contentInput = document.getElementById('contentInput');
-    const contentInput = document.getElementById('contentInput2');
+    const contentInput = document.getElementById('contentInput');
 
 
     const writer = writerInput.value;
