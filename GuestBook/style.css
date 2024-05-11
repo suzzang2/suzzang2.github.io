@@ -78,10 +78,6 @@ button:hover {
     align-items: center;
 }
 
-input[type="content"] {
-    height: 50px;
-    
-}
 
 input {
     margin: 3px;
@@ -101,16 +97,16 @@ input {
 .verifyPassword {
     width: 80px;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 
 #addBtn {
     font-size: 11px;
 }
 
-#titleInput, #contentInput {
+#titleInput {
     width: 96%;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 
 #contentInput {
@@ -161,5 +157,16 @@ img {
 }
 
 #writerInput, #passwordInput {
-    border-radius: 3px;
+    border-radius: 5px;
 }
+
+textarea {
+    width: 96%;
+    border: none;
+    resize: none;
+    border-radius: 5px;
+    margin: 3px;
+    font-family: 'Hahmlet', sans-serif;
+    font-size: 12px;
+}
+

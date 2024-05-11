@@ -104,18 +104,16 @@ const postData = () => {
     const writerInput = document.getElementById('writerInput');
     const passwordInput = document.getElementById('passwordInput');
     const titleInput = document.getElementById('titleInput');
-    const contentInput = document.getElementById('contentInput');
+    // const contentInput = document.getElementById('contentInput');
+    const contentInput = document.getElementById('contentInput2');
 
 
-        // if (input.value === '') {
-        //     window.alert('할 일을 입력해주세요!');
-        //     return; //입력값이 없으면 목록 추가 안 함(예외처리)
-        // }
-        const writer = writerInput.value;
-        const password = passwordInput.value;
-        const title = titleInput.value;
-        const content = contentInput.value;
-        console.log(writer, password, title, content); //입력값 확인
+    const writer = writerInput.value;
+    const password = passwordInput.value;
+    const title = titleInput.value;
+    const contentBefore = contentInput.value;
+    const content = contentBefore.replace(/\n/g, '<br>'); //개행문자를 <br>로 바꿔줌
+    console.log(writer, password, title, content); //입력값 확인
         //입력값이 없으면 POST 안 함(예외처리)
         if(writer === '' || password === '' || title === '' || content === ''){
             alert('모든 항목을 입력하세요^^');
