@@ -53,7 +53,7 @@ const getData = () => {
             //(2) stitle 생성
             const stitle = document.createElement('div');
             stitle.classList.add('stitle');
-            stitle.innerHTML = `${data.title}`;
+            stitle.innerHTML = `<strong>${data.title}</strong>`;
             
             //(3) scontent 생성
             const scontent = document.createElement('div');
