@@ -1,5 +1,5 @@
 
-const baseURL = "http://toy-server.templ.es/guestbooks/";
+const baseURL = "https://toy-server.templ.es/guestbooks/";
 const container = document.getElementById('container');
 
 
