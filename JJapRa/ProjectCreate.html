@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./ProjectCreate.css">
+    <link rel="stylesheet" href="./global.css">
     <script src="https://kit.fontawesome.com/3474060677.js" crossorigin="anonymous"></script>
     <title>Project List</title>
 </head>
@@ -11,8 +12,10 @@
     <header>      
         <div id="titleContainer">
             <div id="logo">
-                <i class="fa-solid fa-bars"></i>
-                <span>JJapRa</span>
+                <button class="sidebarBtn" onclick="openSidebar()">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <a href=ProjectList.html id="jjapra">JJapRa</a>
             </div>
             <div id="middle">
                 <i class="fa-regular fa-envelope"></i>
@@ -36,12 +39,18 @@
                             Name *
                         </div>
                         <input type="text" id="projectName" placeholder="Project Name">
+                    </div>
+                    <div class="oneInput">
+                        <div class="inputLabel">
+                            Description *
                         </div>
+                        <input type="text" id="projectDescription" placeholder="Project Description">
+                    </div>
                     <div class="oneInput">
                         <div class="inputLabel">
                             Dev *
                         </div>
-                        <select>
+                        <select id="selectDev"> <!-- 여기에서 DB에 있는 사용자들 list 불러와야 함? -->
                             <option value="1">DDing</option>
                             <option value="2">Channy</option>
                             <option value="3">Suzzang</option>
@@ -53,7 +62,7 @@
                         <div class="inputLabel">
                             PL *
                         </div>
-                        <select>
+                        <select id="selectPL">
                             <option value="1">DDing</option>
                             <option value="2">Channy</option>
                             <option value="3">Suzzang</option>
@@ -65,7 +74,7 @@
                         <div class="inputLabel">
                             Tester *
                         </div>
-                        <select>
+                        <select id="selectTester">
                             <option value="1">DDing</option>
                             <option value="2">Channy</option>
                             <option value="3">Suzzang</option>
@@ -74,12 +83,12 @@
                         </select>
                     </div>
                     <div class="oneInput" >
-                        <button id="createBtn">Create</button>
+                        <button type="button" id="createBtn" onclick="openProjectList()">Create</button>
                     </div>
                 </div>
-                <div id="projectImg">
+                <!-- <div id="projectImg">
                     <img src="./src/createProject.svg">
-                </div>
+                </div> -->
             </div>
         </div>
     </main>
@@ -87,4 +96,7 @@
         <span>Copyrightⓒ JJapRa 2024</span>
     </footer>
 </body>
+<script src="./ProjectCreate.js"></script>
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
 </html>
