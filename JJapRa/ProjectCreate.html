@@ -16,7 +16,9 @@
                 <a href=ProjectList.html id="jjapra">JJapRa</a>
             </div>
             <div id="middle">
-                <button id="logoutBtn" onclick="logOut()"><i class="fa-solid fa-right-from-bracket"></i>
+                <button id="loginBtn" onclick="logIn()"><i class="fa-solid fa-right-to-bracket"></i>login
+                </button>
+                <button id="logoutBtn" onclick="logOut()"><i class="fa-solid fa-right-from-bracket"></i>logout
                 </button>
             </div>
             <div id="profile">                
@@ -81,7 +83,7 @@
                         </select>
                     </div>
                     <div class="oneInput" >
-                        <button type="button" id="createBtn" onclick="openProjectList(); postData();">Create</button>
+                        <button type="button" id="createBtn" onclick="postData(); ">Create</button>
                     </div>
                 </div>
                 <!-- <div id="projectImg">
@@ -101,6 +103,7 @@
     </footer>
 </body>
 <script src="./ProjectCreate.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <!-- jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
 </html>
