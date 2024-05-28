@@ -15,8 +15,9 @@ const getData = () => {
         return response.json();
     })
     .then((response)=> {
-        console.log("< response >");
-        console.log(response);
+        // console.log(response);
+        console.log("당신! 제 개발자도구를 엿보시는군요!")
+        console.log("zz 좋은 하루 보내세요~")
 
         //response의 시간을 내림차순으로 정렬
         response.sort((a, b) => {
@@ -93,7 +94,6 @@ const getData = () => {
 
             //최종으로 container에 보내기
             container.appendChild(wrapper); 
-            console.log(data); //data 확인
         })
     })
 }
@@ -173,3 +173,24 @@ const delData = (id, password) => { //다른 거와 다르게 id값 필요함!!
         });
     };
 
+
+// 입력한 글의 길이를 체크하여 글자수 제한
+const checkLength = (element, maxLength, input) => {
+    if(element.value.length > maxLength){
+        alert(`${input}은 ${maxLength}자 이내로 작성해주세요^^`);
+        element.value = element.value.substring(0, maxLength);
+    }
+}
+
+// 글자수 카운트
+function updateCounter(input, maxLength) {
+    const currentLength = input.value.length;
+    const counterElement = document.getElementById('charCounter');
+    counterElement.textContent = `${currentLength}/${maxLength}`;
+
+    if (currentLength > maxLength) {
+        alert(`Input exceeds the maximum length of ${maxLength} characters.`);
+        input.value = input.value.slice(0, maxLength); // 초과된 부분 잘라내기
+        counterElement.textContent = `${maxLength}/${maxLength}`;
+    }
+}

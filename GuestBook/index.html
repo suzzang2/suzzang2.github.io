@@ -18,10 +18,11 @@
 
         <div id="new">
             <div id="newHeader">            
-                <input type="text" id="writerInput" placeholder="이름"/> 
+                <input type="text" id="writerInput" placeholder="이름 (최대 20자)" oninput="checkLength(this,20,'이름')"/> 
                 <input type="password" id="passwordInput" placeholder="비밀번호"/>
             </div>
-            <input type="text" id="titleInput" placeholder="제목"/>
+            <input type="text" id="titleInput" placeholder="제목 (최대 30자)" oninput="checkLength(this,30,'제목'); updateCounter(this,30)"/>
+            <span id="charCounter">0/30</span>
             <textarea type="text" id="contentInput" placeholder="내용"></textarea>
             <button id="addBtn" onclick="postData()">게시</button>
         </div> 

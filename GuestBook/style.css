@@ -182,3 +182,7 @@ textarea {
     font-size: 12px;
 }
 
+#charCounter {
+    color:rgb(94, 94, 94);
+    font: 12px 'Sunflower', sans-serif;
+}
