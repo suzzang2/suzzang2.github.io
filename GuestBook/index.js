@@ -113,14 +113,17 @@ const postData = () => {
     const title = titleInput.value;
     const contentBefore = contentInput.value;
     const content = contentBefore.replace(/\n/g, '<br>'); //개행문자를 <br>로 바꿔줌
-    console.log(writer, password, title, content); //입력값 확인
         //입력값이 없으면 POST 안 함(예외처리)
         if(writer === '' || password === '' || title === '' || content === ''){
             alert('모든 항목을 입력하세요^^');
             return;
         }
+    //게시할건지 알림창
+    const confirmed = confirm('게시하시겠습니까?');
+    if(!confirmed){
+        return;
+    }
     
-
     fetch(baseURL, {
         method: 'POST', //이거중요!!
         headers: {
@@ -155,6 +158,12 @@ const delData = (id, password) => { //다른 거와 다르게 id값 필요함!!
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password: password })
       };
+
+      //삭제 전 확인창 띄우기
+      const confirmed = confirm('정말 삭제하시겠습니까?');
+      if(!confirmed){
+          return;
+      } 
     
       fetch(baseURL+id, requestOptions)
         .then(response => {
