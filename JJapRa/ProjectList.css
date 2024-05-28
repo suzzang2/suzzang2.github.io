@@ -52,12 +52,39 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        /* margin: 40px;
-        padding: 20px;
-        margin-left: 40px;
-        margin-right: 40px; */
         margin-left: auto;
     }
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    background-color: rgb(243, 243, 243);
+}
+a:active {
+    background-color: rgb(173, 173, 173);
+}
+
+/* allcoateRoleBtn */
+.allocateRoleBtn {
+    margin-top: auto;
+    background-color: transparent;
+    border: 1.5px solid rgb(160, 160, 160);
+    height: 30px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    color:#616161;
+    margin-top: auto;
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center;    /* 수직 중앙 정렬 */
+}
+
+.allocateRoleBtn:hover {
+    color: rgb(243, 243, 243);
+    background-color:rgb(173, 173, 173);
+}
 
 
 /*  */
@@ -67,14 +94,17 @@
 .fa-user-circle {
     font-size: 20px;
 }
-a {
+#projectCreateBtn {
+    background-color: transparent;
+    border: none;
     text-decoration: none;
+    cursor: pointer;
     color: #1cc88a;
 }
-a:hover{
+#projectCreateBtn:hover{
     color: rgb(151, 151, 151);
 }
-a:active{
+#projectCreateBtn:active{
     color: rgb(71, 71, 71);
 }
 
@@ -83,4 +113,10 @@ a:active{
     text-shadow: 7px 9px 20px 0px #575757;
 }
 
-
+.loginPlzMessage {
+    font-size: 30px;
+    color: rgb(175, 175, 175);
+    width: 100%;
+    text-align: center;
+    margin-top: 100px;
+}
