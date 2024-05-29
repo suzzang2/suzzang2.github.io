@@ -106,10 +106,14 @@ var postData = function postData() {
   var title = titleInput.value;
   var contentBefore = contentInput.value;
   var content = contentBefore.replace(/\n/g, '<br>'); //개행문자를 <br>로 바꿔줌
-  console.log(writer, password, title, content); //입력값 확인
   //입력값이 없으면 POST 안 함(예외처리)
   if (writer === '' || password === '' || title === '' || content === '') {
     alert('모든 항목을 입력하세요^^');
+    return;
+  }
+  //게시할건지 알림창
+  var confirmed = confirm('게시하시겠습니까?');
+  if (!confirmed) {
     return;
   }
   fetch(baseURL, {
@@ -150,6 +154,12 @@ var delData = function delData(id, password) {
       password: password
     })
   };
+
+  //삭제 전 확인창 띄우기
+  var confirmed = confirm('정말 삭제하시겠습니까?');
+  if (!confirmed) {
+    return;
+  }
   fetch(baseURL + id, requestOptions).then(function (response) {
     if (!response.ok) {
       //에러 발생(delete 실패)
