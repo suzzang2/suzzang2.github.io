@@ -125,7 +125,7 @@ const getData = async () => {
         liElement.appendChild(aElement);
         aElement.setAttribute(
           "href",
-          `./issueDetail.html?issueId=${data.issue.issueId}&projectId=${data.issue.projectId}&role=${userRole}`
+          `./IssueDetail.html?issueId=${data.issue.issueId}&projectId=${data.issue.projectId}&role=${userRole}`
         );
         liElement.setAttribute("id", `${data.issue.issueId}`);
         aElement.innerHTML = `${data.issue.title}`;
