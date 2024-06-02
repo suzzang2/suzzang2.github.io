@@ -1,4 +1,3 @@
-
 const baseURL = "https://jjapra.r-e.kr";
 const token = localStorage.getItem("TOKEN");
 const decodedToken = parseJWT(token);
@@ -6,8 +5,8 @@ const decodedToken = parseJWT(token);
 const urlParams = new URLSearchParams(window.location.search);
 const issueId = urlParams.get("issueId");
 const projectId = urlParams.get("projectId");
-const userRole = decodedToken.payload.role;
-const userName = decodedToken.payload.userName;
+const userRole = urlParams.get("role");
+const userName = decodedToken.payload.username;
 
 const assigneeElement = document.getElementById("assignee");
 
@@ -126,7 +125,7 @@ const getData = () => {
       }
       if (response.issue.status == "RESOLVED") {
         resolvedElement.innerText = " ⭕️ ";
-        fixedElement.innerText = " ❌ ";
+        fixedElement.innerText = " ⭕️  ";
       } else {
         resolvedElement.innerText = " ❌ ";
         if (response.issue.status == "FIXED") {
@@ -181,36 +180,34 @@ const requestChangeIssue = async (key, value) => {
 };
 
 //asignee 할당 함수
-const assign = (id, role) => {
+const assign = async (id, role) => {
   if (id == "") {
     alert("유효한 계정을 선택하세요");
-    return false;
+    throw new Error("미선택");
   }
-  fetch(baseURL + "/issues/" + issueId + "/members", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + token,
-    },
-    body: JSON.stringify({
-      id: id,
-      role: role,
-    }),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        return false;
-      }
-      return response.json(); // JSON 응답을 반환하여 다음 then으로 연결
-    })
-    .then((data) => {
-      console.log(data);
-      return true; // 성공 시 true 반환
-    })
-    .catch((error) => {
-      console.error(error);
-      return false; // 에러 시 false 반환
+  try {
+    const response = await fetch(baseURL + "/issues/" + issueId + "/members", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+      body: JSON.stringify({
+        id: id,
+        role: role,
+      }),
     });
+
+    if (!response.ok) {
+      return false;
+    }
+
+    const data = await response.json();
+    return data; // JSON 응답을 반환
+  } catch (error) {
+    console.error(error);
+    return false; // 에러 시 false 반환
+  }
 };
 
 //Dev인 사용자만 체크박스 option으로 설정하는 함수
@@ -295,9 +292,13 @@ const changeElementsbyRole = async () => {
       assignBtn.classList.add("assignBtn");
       assignBtn.innerText = "assign";
       assignBtn.onclick = async () => {
-        await assign(assigneeSelector.value, "ASSIGNEE");
-        await requestChangeIssue("status", "ASSIGNED");
-        window.location.reload();
+        try {
+          await assign(assigneeSelector.value, "ASSIGNEE");
+          await requestChangeIssue("status", "ASSIGNED");
+          window.location.reload();
+        } catch (error) {
+          console.log(error);
+        }
       };
       assigneeCard.appendChild(assigneeSelector);
       assigneeCard.appendChild(assignBtn);
@@ -306,35 +307,45 @@ const changeElementsbyRole = async () => {
         const detailSection = document.getElementById("detailSection");
         const closedBtn = document.createElement("button");
         closedBtn.innerText = "이슈 Closed";
-        detailSection.appendChild(closedBtn);
+        closedBtn.onclick = async () => {
+          await requestChangeIssue("status", "CLOSED");
+          window.location.reload();
+        };
+        detailSection.prepend(closedBtn);
       }
     }
   }
   if (userRole == "DEV" || userRole == "ADMIN") {
     //해당 issue에 할당된 DEV일경우 ASSINGE->FIXED 가능
-    if (assigneeElement.innerText != userName) {
-      const fixCard = document.getElementById("fixCard");
-      const fixBtn = document.createElement("button");
-      fixBtn.classList.add("fixBtn");
-      fixBtn.innerText = "fix";
-      fixCard.appendChild(fixBtn);
-      fixBtn.onclick = async () => {
-        await requestChangeIssue("status", "FIXED");
-        window.location.reload();
-      };
+    if (assigneeElement.innerText == userName) {
+      const status = statusElement.innerText;
+      if (status == "ASSIGNED") {
+        const fixCard = document.getElementById("fixCard");
+        const fixBtn = document.createElement("button");
+        fixBtn.classList.add("fixBtn");
+        fixBtn.innerText = "fix";
+        fixCard.appendChild(fixBtn);
+        fixBtn.onclick = async () => {
+          await requestChangeIssue("status", "FIXED");
+          window.location.reload();
+        };
+      }
     }
   }
   if (userRole == "TESTER" || userRole == "ADMIN") {
-    //해당 issue에 할당된 DEV일경우 ASSINGE->RESOLVED 가능
-    const resolvedCard = document.getElementById("resolvedCard");
-    const resovledBtn = document.createElement("button");
-    resovledBtn.classList.add("resolvedBtn");
-    resovledBtn.innerText = "resolve";
-    resolvedCard.appendChild(resovledBtn);
-    resovledBtn.onclick = async () => {
-      await requestChangeIssue("status", "RESOLVED");
-      window.location.reload();
-    };
+    //해당 issue에 할당된 DEV일경우 FIXED->RESOLVED 가능
+    const status = statusElement.innerText;
+    if (status == "FIXED") {
+      const resolvedCard = document.getElementById("resolvedCard");
+      const resovledBtn = document.createElement("button");
+      resovledBtn.classList.add("resolvedBtn");
+      resovledBtn.innerText = "resolve";
+      resolvedCard.appendChild(resovledBtn);
+      resovledBtn.onclick = async () => {
+        await requestChangeIssue("status", "RESOLVED");
+        window.location.reload();
+      };
+    }
   }
 };
 
@@ -388,21 +399,21 @@ getData();
 // localStorage에서 사용자 이름을 가져와서 프로필에 표시하는 함수 추가
 function displayUsername() {
   console.log("displayUsername() called");
-  const username = localStorage.getItem('username'); // localStorage에서 사용자 이름 가져오기
+  const username = localStorage.getItem("username"); // localStorage에서 사용자 이름 가져오기
   if (username) {
-      document.querySelector('#profile span').textContent = username; // 사용자 이름을 페이지에 표시
+    document.querySelector("#profile span").textContent = username; // 사용자 이름을 페이지에 표시
   }
 }
 
 function logOut() {
   const confirmed = confirm("Are you sure you want to log out?");
   if (confirmed) {
-      localStorage.removeItem('username'); // 사용자 이름 삭제
-      localStorage.removeItem('TOKEN'); // 토큰 삭제!!
-      console.log("logout");
-      location.href = "./loginpage.html";
+    localStorage.removeItem("username"); // 사용자 이름 삭제
+    localStorage.removeItem("TOKEN"); // 토큰 삭제!!
+    console.log("logout");
+    location.href = "./loginpage.html";
   } else {
-      console.log("Logout canceled");
+    console.log("Logout canceled");
   }
 }
 function logIn() {
@@ -410,43 +421,64 @@ function logIn() {
 }
 
 function toggleLoginLogoutButtons() {
-  const username = localStorage.getItem('username');
-  const loginBtn = document.getElementById('loginBtn');
-  const logoutBtn = document.getElementById('logoutBtn');
+  const username = localStorage.getItem("username");
+  const loginBtn = document.getElementById("loginBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
 
   if (username) {
-      // 사용자가 로그인한 경우
-      loginBtn.style.display = 'none';   // 로그인 버튼 숨기기
-      logoutBtn.style.display = 'inline-block'; // 로그아웃 버튼 보이기
+    // 사용자가 로그인한 경우
+    loginBtn.style.display = "none"; // 로그인 버튼 숨기기
+    logoutBtn.style.display = "inline-block"; // 로그아웃 버튼 보이기
   } else {
-      // 사용자가 로그인하지 않은 경우
-      loginBtn.style.display = 'flex'; // 로그인 버튼 보이기
-      logoutBtn.style.display = 'inline-block';   // 로그아웃 버튼 숨기기
+    // 사용자가 로그인하지 않은 경우
+    loginBtn.style.display = "flex"; // 로그인 버튼 보이기
+    logoutBtn.style.display = "inline-block"; // 로그아웃 버튼 숨기기
   }
 }
 
-
 //sidebar test
-document.getElementById('toggleSidebarBtn').addEventListener('click', function() {
-  const sidebar = document.getElementById('sidebar');
-  const content = document.getElementById('mainContainer');
-  if (sidebar.style.width === '170px') {
-      sidebar.style.width = '0';
-      content.style.marginLeft = '100px';
-  } else {
-      sidebar.style.width = '170px';
-      content.style.marginLeft = '200px';
-  }
-});
-
+document
+  .getElementById("toggleSidebarBtn")
+  .addEventListener("click", function () {
+    const sidebar = document.getElementById("sidebar");
+    const content = document.getElementById("mainContainer");
+    if (sidebar.style.width === "170px") {
+      sidebar.style.width = "0";
+      content.style.marginLeft = "100px";
+    } else {
+      sidebar.style.width = "170px";
+      content.style.marginLeft = "200px";
+    }
+  });
 
 // 프로필 누르면 해당 계정에만 해당하는 issue 페이지로 이동
 function openUserIssues() {
   // window.location.href = "./UserIssues.html";
-  const username = localStorage.getItem('username');
+  const username = localStorage.getItem("username");
   if (username) {
-      window.location.href = "./UserIssues.html";
+    window.location.href = "./UserIssues.html";
   } else {
-      alert("Please Log in first"); // 로그인하라는 메시지
+    alert("Please Log in first"); // 로그인하라는 메시지
   }
 }
+
+const deleteBtn = document.getElementById("delete");
+deleteBtn.onclick = () => {
+  if (userRole == "PL" || userRole == "ADMIN") {
+    fetch(baseURL + "/issues/" + issueId, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+    }).then((response) => {
+      if (!response.ok) {
+        alert("assigned된 이슈는 삭제할 수 없습니다.");
+      } else {
+        alert("삭제되었습니다.");
+        window.location.reload();
+      }
+    });
+  } else {
+  }
+};
