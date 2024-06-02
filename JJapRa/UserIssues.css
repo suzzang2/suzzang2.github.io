@@ -1,7 +1,10 @@
 button {
-  width: 80px;
-  background-color: rgb(201, 201, 201);
-  border-radius: 16px;
+  align-self: center;
+  background-color: rgb(209, 209, 209);
+  border: 1.4px solid rgb(182, 182, 182);
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 5px;
 }
 
 #issueTable {
