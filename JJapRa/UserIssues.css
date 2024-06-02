@@ -5,6 +5,13 @@ button {
   border-radius: 10px;
   cursor: pointer;
   margin-left: 5px;
+  color: rgb(93, 93, 93);
+}
+button:hover {
+  background-color: rgb(182, 182, 182);
+}
+button:active {
+  background-color: rgb(160, 160, 160);
 }
 
 #issueTable {
