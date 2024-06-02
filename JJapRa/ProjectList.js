@@ -71,7 +71,7 @@ const getProjects = () => { //axios로 변경
                 allocateRoleBtn.classList.add('allocateRoleBtn');
                 allocateRoleBtnIcon.classList.add('fa-solid');
                 allocateRoleBtnIcon.classList.add('fa-person-circle-plus');
-                allocateRoleBtn.setAttribute('href', `./AllocateRole.html?id=${data.project.id}`);
+                allocateRoleBtn.setAttribute('href', `./allocateRole.html?id=${data.project.id}`);
 
                 a.appendChild(projectTitle);
                 a.appendChild(projectDescription);
