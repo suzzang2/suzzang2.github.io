@@ -185,6 +185,20 @@ select {
   color: rgb(91, 91, 91);
   font-weight: 600;
 }
+#commentBtn:hover,
+.fixBtn:hover,
+.resolvedBtn:hover,
+.assignBtn:hover {
+  background-color: rgb(160, 160, 160);
+  color: white;
+}
+#commentBtn:active,
+.fixBtn:active,
+.resolvedBtn:active,
+.assignBtn:active {
+  background-color: rgb(102, 102, 102);
+  color: white;
+}
 textarea {
   padding: 10px;
   border-radius: 7px;
@@ -207,7 +221,7 @@ textarea {
   font-weight: 600;
 }
 #delete:hover {
-  background-color: rgb(255, 27, 27);
+  background-color: rgb(255, 37, 37);
   color: white;
 }
 #delete:active {
