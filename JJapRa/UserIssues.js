@@ -1,91 +1,5 @@
 const baseURL = "https://jjapra.r-e.kr";
 
-// const getUserIssues = () => {
-//     axios.get(baseURL + "/issues", {
-//         headers: {
-//             'Authorization': 'Bearer ' + localStorage.getItem('TOKEN'),
-//         }
-//     })
-//     .then(response => {
-//         console.log("/issues");
-//         console.log(response.data);
-
-//         // 이슈들을 출력
-//         const issues = response.data;
-//         const issueTableBody = document.getElementById('issueTableBody');
-
-//         // 각 이슈에 대해 프로젝트 정보를 가져오고, 해당 정보를 사용하여 테이블 행을 생성
-//         issues.forEach(data => {
-//             axios.get(baseURL + "/projects/" + data.projectId, {
-//                 headers: {
-//                     'Authorization': 'Bearer ' + localStorage.getItem('TOKEN'),
-//                 }
-//             })
-//             .then(projectResponse => {
-//                 console.log("/projects");
-//                 console.log(projectResponse.data);
-//                 const projectTitleText = projectResponse.data.project.title;
-
-//                 // issueTableRow 생성
-//                 const issueTableRow = document.createElement('a');
-//                 issueTableRow.classList.add("issueTableRow");
-//                 issueTableRow.setAttribute('href', `./IssueDetail.html?issueId=${data.issueId}&projectId=${data.projectId}`);
-
-//                 const issueId = document.createElement('div');
-//                 issueId.classList.add("issueTableCell");
-//                 issueId.classList.add("issueId");
-//                 issueId.innerHTML = `${data.issueId}`;
-
-//                 const projectTitle = document.createElement('div');
-//                 projectTitle.classList.add("issueTableCell");
-//                 projectTitle.classList.add("projectTitle");
-//                 projectTitle.innerHTML = `${projectTitleText}`;
-
-//                 const issueTitle = document.createElement('div');
-//                 issueTitle.classList.add("issueTableCell");
-//                 issueTitle.innerHTML = `${data.title}`;
-
-//                 const issueDescription = document.createElement('div');
-//                 issueDescription.classList.add("issueTableCell");
-//                 issueDescription.innerHTML = `${data.description}`;
-
-//                 const issueWriter = document.createElement('div');
-//                 issueWriter.classList.add("issueTableCell");
-//                 issueWriter.innerHTML = `${data.writer}`;
-
-//                 const issueStatus = document.createElement('div');
-//                 issueStatus.classList.add("issueTableCell");
-//                 issueStatus.innerHTML = `${data.status}`;
-
-//                 const issuePriority = document.createElement('div');
-//                 issuePriority.classList.add("issueTableCell");
-//                 if(data.priority === "BLOCKER" || data.priority === "CRITICAL") {
-//                     issuePriority.innerHTML = `🚨${data.priority}`;
-//                 } else {
-//                     issuePriority.innerHTML = `${data.priority}`;
-//                 }
-
-//                 issueTableRow.appendChild(issueId);
-//                 issueTableRow.appendChild(projectTitle);
-//                 issueTableRow.appendChild(issueTitle);
-//                 issueTableRow.appendChild(issueDescription);
-//                 issueTableRow.appendChild(issueWriter);
-//                 issueTableRow.appendChild(issueStatus);
-//                 issueTableRow.appendChild(issuePriority);
-
-//                 // 최종적으로 테이블에 추가
-//                 issueTableBody.appendChild(issueTableRow);
-//             })
-//             .catch(error => {
-//                 console.error('Error fetching project:', error);
-//             });
-//         });
-//     })
-//     .catch(error => {
-//         console.error('Error fetching issues:', error);
-//     });
-// }
-
 const getUserIssues = () => {
   axios
     .get(baseURL + "/issues", {
@@ -197,7 +111,7 @@ const searchIssues = () => {
       let issues = response.data;
 
       if (searchInput) {
-        if (searchType === "title") {
+        if (searchType === "project") {
           issues = issues.filter(
             (issue) =>
               issue.title.toLowerCase().includes(searchInput) ||
@@ -210,6 +124,10 @@ const searchIssues = () => {
         } else if (searchType === "writer") {
           issues = issues.filter((issue) =>
             issue.writer.toLowerCase().includes(searchInput)
+          );
+        } else if (searchType === "priority") {
+          issues = issues.filter((issue) =>
+            issue.priority.toLowerCase().includes(searchInput)
           );
         }
       }
