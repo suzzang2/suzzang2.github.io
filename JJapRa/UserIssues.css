@@ -99,3 +99,7 @@ a {
 #searchBtn:active {
   background-color: rgb(160, 160, 160);
 }
+
+#statisticsBtn {
+  font-size: 20px;
+}
