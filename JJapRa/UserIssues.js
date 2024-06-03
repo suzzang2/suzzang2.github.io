@@ -136,6 +136,10 @@ const searchIssues = async () => {
     }
 }
 
+function openStatistics() {
+    location.href = "./Statistics.html";
+}
+
 // 여기부터 default 코드 //
 function displayUsername() {
     console.log("displayUsername() called");
