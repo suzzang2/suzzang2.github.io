@@ -197,3 +197,20 @@ textarea {
 #commentCard {
   margin-top: 30px;
 }
+
+#delete {
+  cursor: pointer;
+  background-color: rgb(255, 105, 105);
+  border: 1.7px solid rgb(160, 160, 160);
+  border-radius: 5px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+}
+#delete:hover {
+  background-color: rgb(255, 27, 27);
+  color: white;
+}
+#delete:active {
+  background-color: rgb(255, 27, 27);
+  color: white;
+}

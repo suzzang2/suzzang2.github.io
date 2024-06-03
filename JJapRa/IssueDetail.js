@@ -476,7 +476,7 @@ deleteBtn.onclick = () => {
         alert("assigned된 이슈는 삭제할 수 없습니다.");
       } else {
         alert("삭제되었습니다.");
-        window.location.reload();
+        window.location.href = "./ProjectManage.html?projectId=" + projectId;
       }
     });
   } else {
